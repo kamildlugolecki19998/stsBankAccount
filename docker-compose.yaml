@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  apache:
+    build:
+      context: .
+      dockerfile: ./apache/Dockerfile
+    env_file:
+      - .env
+    ports:
+      - '80:80'
+    volumes:
+      - ./app:/var/www/html/
+    depends_on:
+      - bank-account-db
+
+  bank-account-db:
+    image: mariadb:10.9
+    restart: always
+    environment:
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+    ports:
+      - '3306:3306'
+    volumes:
+      - bank-account-db-data:/var/lib/mysql
+
+volumes:
+  bank-account-db-data: 
+
