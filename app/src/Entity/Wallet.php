@@ -6,6 +6,7 @@ use App\Repository\WalletRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: WalletRepository::class)]
 class Wallet
@@ -19,6 +20,8 @@ class Wallet
     private ?string $name = null;
 
     #[ORM\Column]
+    #[Assert\GreaterThanOrEqual(value: 0, message: 'Start value of founds must be greater than 0.', groups: ['create'])]
+    #[Assert\GreaterThanOrEqual(value: 0, message: 'You don\'t have enough founds in your wallet.', groups: ['payment'])]
     private ?float $founds = null;
 
     #[ORM\OneToMany(mappedBy: 'wallet', targetEntity: Payment::class)]
