@@ -36,7 +36,7 @@ class GenerateWalletHistoryCommand extends Command
         $wallet = $this->walletRepository->findOneBy(['name' => $input->getOption('walletName')]);
 
         if ($wallet === null) {
-            $output->writeln('Cannot find wallet about given name ' . $input->getArgument('walletName'));
+            $output->writeln('Cannot find wallet with given name.' . $input->getArgument('walletName'));
 
             return Command::FAILURE;
         }
