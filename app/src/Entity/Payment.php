@@ -27,6 +27,12 @@ class Payment
     #[ORM\JoinColumn(nullable: false)]
     private ?Wallet $wallet = null;
 
+    #[ORM\Column]
+    private ?float $walletBalanceBeforeOperation = null;
+
+    #[ORM\Column]
+    private ?float $walletBalanceAfterOperation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +82,30 @@ class Payment
     public function setWallet(?Wallet $wallet): self
     {
         $this->wallet = $wallet;
+
+        return $this;
+    }
+
+    public function getWalletBalanceBeforeOperation(): ?float
+    {
+        return $this->walletBalanceBeforeOperation;
+    }
+
+    public function setWalletBalanceBeforeOperation(float $walletBalanceBeforeOperation): self
+    {
+        $this->walletBalanceBeforeOperation = $walletBalanceBeforeOperation;
+
+        return $this;
+    }
+
+    public function getWalletBalanceAfterOperation(): ?float
+    {
+        return $this->walletBalanceAfterOperation;
+    }
+
+    public function setWalletBalanceAfterOperation(float $walletBalanceAfterOperation): self
+    {
+        $this->walletBalanceAfterOperation = $walletBalanceAfterOperation;
 
         return $this;
     }

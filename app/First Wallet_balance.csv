@@ -1,0 +1,14 @@
+"Wallet Name","Operation Type","Operation Value","Operation Date","Wallet Balance Before Operation","Wallet Balance After Operation"
+"First Wallet",WITHDRAWAL,100,"2023-05-11 18:03:05",100,0
+"First Wallet",DEPOSIT,100,"2023-05-11 18:04:16",0,100
+"First Wallet",WITHDRAWAL,100,"2023-05-11 18:04:18",100,0
+"First Wallet",DEPOSIT,100,"2023-05-11 18:05:19",0,100
+"First Wallet",DEPOSIT,100,"2023-05-11 18:05:20",100,200
+"First Wallet",DEPOSIT,100,"2023-05-11 20:11:56",200,300
+"First Wallet",DEPOSIT,100,"2023-05-11 20:12:07",300,400
+"First Wallet",WITHDRAWAL,400,"2023-05-13 10:04:32",400,0
+"First Wallet",WITHDRAWAL,400,"2023-05-13 10:04:35",0,-400
+"First Wallet",WITHDRAWAL,400,"2023-05-13 10:04:45",-400,-800
+"First Wallet",DEPOSIT,200,"2023-05-13 10:05:54",0,200
+"First Wallet",WITHDRAWAL,-400,"2023-05-13 10:05:57",200,600
+"First Wallet",WITHDRAWAL,400,"2023-05-13 10:08:41",600,200
