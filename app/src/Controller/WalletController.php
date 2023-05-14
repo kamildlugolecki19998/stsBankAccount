@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Const\PaymentType;
 use App\Entity\Wallet;
+use App\Helper\ErrorHelper;
 use App\Service\Wallet\DepositWalletService;
 use App\Service\Wallet\WalletService;
 use App\Service\Wallet\WithdrawalWalletService;
@@ -35,7 +36,9 @@ class WalletController extends AbstractController
         $errors = $validator->validate($wallet, groups: ['create']);
 
         if ($errors->count() > 0) {
-            return new JsonResponse((string)$errors, Response::HTTP_BAD_REQUEST);
+            $return = ErrorHelper::normalizeErrors($errors);
+
+            return new JsonResponse($return, Response::HTTP_BAD_REQUEST);
         }
 
         $entityManager->flush();
@@ -60,7 +63,9 @@ class WalletController extends AbstractController
         $errors = $validator->validate($wallet, groups: 'payment');
 
         if ($errors->count() > 0) {
-            return new JsonResponse((string)$errors, Response::HTTP_BAD_REQUEST);
+            $return = ErrorHelper::normalizeErrors($errors);
+
+            return new JsonResponse($return, Response::HTTP_BAD_REQUEST);
         }
 
         $entityManager->flush();
@@ -86,7 +91,9 @@ class WalletController extends AbstractController
         $errors = $validator->validate($wallet, groups: 'payment');
 
         if ($errors->count() > 0) {
-            return new JsonResponse((string)$errors, Response::HTTP_BAD_REQUEST);
+            $return = ErrorHelper::normalizeErrors($errors);
+
+            return new JsonResponse($return, Response::HTTP_BAD_REQUEST);
         }
 
         $entityManager->flush();

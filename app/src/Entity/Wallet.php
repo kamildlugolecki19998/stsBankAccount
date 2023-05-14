@@ -20,7 +20,7 @@ class Wallet
     private ?string $name = null;
 
     #[ORM\Column]
-    #[Assert\GreaterThanOrEqual(value: 0, message: 'Start value of founds must be greater than 0.', groups: ['create'])]
+    #[Assert\GreaterThanOrEqual(value: 0, message: 'Start value of founds must be equal or greater than 0.', groups: ['create'])]
     #[Assert\GreaterThanOrEqual(value: 0, message: 'You don\'t have enough founds in your wallet.', groups: ['payment'])]
     private ?float $founds = null;
 
