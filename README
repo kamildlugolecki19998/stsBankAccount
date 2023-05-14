@@ -1,0 +1,16 @@
+Simple application for STS recrutation
+
+Application contains simple REST API simulation bank account
+
+Run application locally.
+
+1. Clone repository
+2. Go to root directory
+3. run "docker compose build"
+4. run "docker compose up"
+5. To test endpoints get to "localhost:80/api/doc"
+6. To test command to generate csv file you have to get into docker container 
+  6.1 run docker ps 
+  6.2 run docker exec -it stsbankaccount-apache-1 bash
+  6.3 run php bin/console generate-wallet-history-csv --walletName="Write created wallet name"
+  6.3 file is located in project root directory with name "wallet name.csv"
