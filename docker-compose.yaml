@@ -11,6 +11,7 @@ services:
       - '80:80'
     volumes:
       - ./app:/var/www/html/
+      - vendor:/var/www/html/vendor
     depends_on:
       - bank-account-db
 
@@ -27,4 +28,4 @@ services:
 
 volumes:
   bank-account-db-data: 
-
+  vendor:
